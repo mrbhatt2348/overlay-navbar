@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Full Screen Menu with HTML and CSS</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="full-screen-menu.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<i class="fa fa-bars menu-icon" onclick="openMenu()"></i>
+<div id="container">
+ <div id="close" onclick="closeMenu()">➕</div>
+ <ul id="menu">
+    <li><a href="#">Home</a></li>
+    <li><a href="#">About</a></li>
+    <li><a href="#">Services</a></li>
+    <li><a href="#">Contact</a></li>
+    <li><a href="#">Feedback</a></li>
+ </ul>    
+</div>   
+</body> 
+
+<script>
+    function openMenu()
+    {
+        document.getElementById('container').style.right='0%';
+        document.getElementById('menu').style.opacity='1';
+    }
+    function closeMenu()
+    {
+        document.getElementById('container').style.right='-100%';
+        document.getElementById('menu').style.opacity='0';
+    }
+    </script>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        font-family: monospace;
+    }
+    .menu-icon
+    {
+        float: right;
+        margin: 20px;
+        font-size: 25px;
+        cursor: pointer;
+    }
+    #close
+    {
+        margin: 20px;
+        float: right;
+        color: #000;
+        transform: rotate(45deg);
+        font-size: 20px;
+        cursor: pointer;
+    }
+    #menu li a{
+        display: inline-block;
+        padding: 10px;
+        text-decoration: none;
+        font-size: 20px;
+        font-weight: bold;
+        color: #000;
+        margin: 5px 0px;
+        transition: all 0.3s ease;
+    }
+    #menu
+    {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        list-style: none;
+        text-align: center;
+        opacity: 0;
+        transition: all 1s ease;
+    }
+    #container
+    {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 100%;
+        height: 100%;
+        background: #e3e7f3;
+        text-align: center;
+        transition: all 0.6s ease;
+    }
+    #menu li a:hover
+    {
+        background-color: #000;
+        color: #fff;
+    }
+    </style>           
